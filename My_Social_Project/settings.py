@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATE_DIR = BASE_DIR / 'templates'
+TEMPLATES_DIR = BASE_DIR / 'templates'
 MEDIA_DIR = BASE_DIR / 'media'
 STATIC_DIR = BASE_DIR / 'static'
 
@@ -41,7 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'App_Login',
+    'App_Post',
+    'crispy_forms',
+    'crispy_bootstrap5'
 ]
+
+CRISPR_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -58,7 +64,7 @@ ROOT_URLCONF = 'My_Social_Project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR, ],
+        'DIRS': [TEMPLATES_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,9 +128,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIR = [STATIC_DIR, ]
 
-
-MEDIA_URL = 'media/'
 MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = 'media/'
+
 
 
 # Default primary key field type
